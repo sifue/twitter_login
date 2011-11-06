@@ -12,8 +12,8 @@ end
 
 configure do
   use Rack::Session::Cookie, :secret => Digest::SHA1.hexdigest(rand.to_s)
-  KEY = "LGgyF56K6Nrkzv89Gig"
-  SECRET = "vTOGqKOwaX9g4xOotUPnRPlFpTlbAg9C5U0Bj4q0s"
+  KEY = "your_consumer_key"
+  SECRET = "your_consumer_secret"
 end
 
 before do
