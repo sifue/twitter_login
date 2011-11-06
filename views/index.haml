@@ -7,6 +7,14 @@
   %body
     %div#container
       %h1= @title
-      %a(title='OAuth Login' href='/request_token')
-        %img(src='sign-in-with-twitter-l.png')
-      
+      - if not @twitter
+        %a(title='OAuth Login' href='/request_token')
+          %img(src='sign-in-with-twitter-l.png')
+      - if @twitter
+        %a(title='logout' href='/logout')Logout
+        %h3= 'Login now! Show your home_timeline'
+        %hr/
+        - @twitter.home_timeline.each do |status|
+          %p= status.user.name
+          %p= status.text
+          %hr/
